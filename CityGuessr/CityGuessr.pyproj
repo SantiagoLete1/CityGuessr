@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>202b64e5-9113-40aa-b9fd-269a3a97cc61</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>App.py</StartupFile>
+    <StartupFile>app.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.py" />
+    <Compile Include="app.py" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
