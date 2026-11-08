@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CityGuessr - {{ ciudad.nombre }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:,">
+</head>
+<body class="juego" data-ciudad='{{ ciudad|tojson }}' data-token="{{ mapillary_token }}">
+    <div id="panorama"></div>
+    <div id="minimapa"></div>
+    <button id="btn-adivinar" class="boton" disabled>Adivinar</button>
+
+    <div id="resultado" class="resultado" hidden>
+        <h2 id="resultado-puntaje"></h2>
+        <p id="resultado-distancia"></p>
+        <div class="resultado__acciones">
+            <button id="btn-nueva" class="boton">Jugar de nuevo</button>
+            <a class="boton boton--secundario" href="{{ url_for('index') }}">Inicio</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/mapillary-js@4.1.2/dist/mapillary.js"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

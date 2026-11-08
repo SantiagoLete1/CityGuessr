@@ -1,0 +1,193 @@
+:root {
+    --fondo: #0f172a;
+    --fondo-claro: #1e293b;
+    --texto: #f1f5f9;
+    --texto-suave: #94a3b8;
+    --acento: #22c55e;
+    --acento-hover: #16a34a;
+    --mini-ancho: 400px;
+    --mini-alto: 280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+/* Pantalla de inicio */
+.inicio {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, var(--fondo-claro), var(--fondo));
+}
+
+.inicio__contenido {
+    max-width: 480px;
+    padding: 24px;
+    text-align: center;
+}
+
+.inicio__titulo {
+    margin: 0 0 12px;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+    .inicio__titulo span {
+        color: var(--acento);
+    }
+
+.inicio__subtitulo {
+    margin: 0 0 32px;
+    color: var(--texto-suave);
+    line-height: 1.5;
+}
+
+.ciudades {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.boton {
+    display: block;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background: var(--acento);
+    color: #052e16;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+    .boton:hover {
+        background: var(--acento-hover);
+    }
+
+/* Pantalla de juego */
+.juego {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#panorama {
+    position: absolute;
+    inset: 0;
+}
+
+#minimapa {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: var(--mini-ancho);
+    height: var(--mini-alto);
+    z-index: 10;
+    border-radius: 8px;
+    border: 2px solid var(--fondo-claro);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+#btn-adivinar {
+    position: absolute;
+    right: 16px;
+    bottom: 244px;
+    width: var(--mini-ancho);
+    bottom: calc(var(--mini-alto) + 16px);
+    z-index: 10;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+    #btn-adivinar:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    #btn-adivinar[hidden] {
+        display: none;
+    }
+
+#minimapa.minimapa--resultado {
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    bottom: 170px;
+    width: auto;
+    height: auto;
+}
+
+.resultado {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 16px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--fondo-claro);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+    .resultado[hidden] {
+        display: none;
+    }
+
+    .resultado h2,
+    .resultado p {
+        margin: 0;
+    }
+
+.resultado__acciones {
+    display: flex;
+    gap: 12px;
+}
+
+.boton--secundario {
+    background: transparent;
+    border: 1px solid var(--texto-suave);
+    color: var(--texto);
+}
+
+    .boton--secundario:hover {
+        background: var(--fondo);
+    }
+
+@media (hover: hover) {
+    body.juego:has(#minimapa:hover, #btn-adivinar:hover) {
+        --mini-ancho: 50vw;
+        --mini-alto: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --mini-ancho: calc(100vw - 32px);
+        --mini-alto: 30vh;
+    }
+
+    #minimapa.minimapa--resultado {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        bottom: 200px;
+    }
+
+    .resultado {
+        left: 16px;
+        right: 16px;
+    }
+}

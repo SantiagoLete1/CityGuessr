@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CityGuessr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:,">
+</head>
+<body class="inicio">
+    <main class="inicio__contenido">
+        <h1 class="inicio__titulo">City<span>Guessr</span></h1>
+        <p class="inicio__subtitulo">¿Cuánto conocés tu ciudad? Te soltamos en una calle al azar y tenés que adivinar dónde estás.</p>
+
+        <div class="ciudades">
+            {% for slug, ciudad in ciudades.items() %}
+            <a class="boton" href="{{ url_for('jugar', slug=slug) }}">Jugar {{ ciudad.nombre }}</a>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
